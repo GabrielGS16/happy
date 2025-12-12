@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('food_id');
+            $table->unsignedBigInteger('user_id');
+            $table->text('comment')->nullable();
             $table->timestamps();
         });
     }
