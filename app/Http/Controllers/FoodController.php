@@ -12,7 +12,7 @@ class FoodController extends Controller
     public function index()
     {
         $foods = Food::all();
-        return view('food.index', compact('foods'));
+        return view('foods.index', compact('foods'));
     }
 
     /**
@@ -20,7 +20,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        return view('food.create');
+        return view('foods.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class FoodController extends Controller
     public function edit(string $id)
     {
         $food = Food::findOrFail($id);
-        return view('food.edit', compact('food'));
+        return view('foods.edit', compact('food'));
     }
 
     /**

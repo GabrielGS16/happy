@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Avaliação (Tailwind)</title>
+    <title>Editar Categoria (Tailwind)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Mantendo as cores customizadas para consistência
@@ -27,10 +27,10 @@
     <div class="w-full max-w-lg bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
         
         <h1 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-            Editar Avaliação: <span class="text-primary">{{ $review->user_id }}</span>
+            Editar Categoria: <span class="text-primary">{{ $category->name }}</span>
         </h1>
 
-        <form action="{{ route('reviews.update', $review->id) }}" method="POST" class="space-y-6">
+        <form action="{{ route('reviews.update', $category->id) }}" method="POST" class="space-y-6">
             @csrf
             @method('PUT') 
             
@@ -47,7 +47,7 @@
             </div>
             
             <div>
-                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Descrição:</label>
+                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Nome do Prato:</label>
                 <textarea 
                     id="food_id" 
                     name="food_id" 
@@ -55,15 +55,7 @@
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 >{{ $review->food_id }}</textarea>
             </div>
-             <div>
-                <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">Avaliação:</label>
-                <textarea 
-                    id="rating" 
-                    name="rating" 
-                    rows="4"
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
-                >{{ $review->rating }}</textarea>
-             </div>
+            
             <button 
                 type="submit" 
                 class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-secondary hover:bg-secondary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary transition duration-150 ease-in-out transform hover:scale-[1.01]"

@@ -12,26 +12,22 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('order.index', compact('orders'));
+        return view('orders.index', compact('orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('order.create');
+        return view('orders.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    
-        {
+    {
         $request->validate([
             'name_food' => 'required|string|max:255',
-            'name_store' => 'required|string|max:255',
+            'name_store' => 'nullable|string',
             'quantity' => 'required|integer',
         ]);
 
@@ -55,7 +51,7 @@ class OrderController extends Controller
     public function edit(string $id)
     {
         $order = Order::findOrFail($id);
-        return view('order.edit', compact('order'));
+        return view('orders.edit', compact('order'));
     }
 
     /**
@@ -63,15 +59,14 @@ class OrderController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
         $request->validate([
             'name_food' => 'required|string|max:255',
-            'name_store' => 'required|string|max:255',
+            'name_store' => 'nullable|string',
             'quantity' => 'required|integer',
         ]);
-
         $order = Order::findOrFail($id);
         $order->update($request->all());
-
         return redirect()->route('orders.index')
                          ->with('success', 'Order updated successfully.');
     }
@@ -80,11 +75,11 @@ class OrderController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-      {
+    {
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return redirect()->route('order.index')
+        return redirect()->route('orders.index')
                          ->with('success', 'Order deleted successfully.');
     }
 }

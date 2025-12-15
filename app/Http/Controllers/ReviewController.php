@@ -12,12 +12,12 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view('review.index', compact('reviews'));
+        return view('reviews.index', compact('reviews'));
     }
 
     public function create()
     {
-        return view('review.create');
+        return view('reviews.create');
     }
 
     /**
@@ -26,8 +26,10 @@ class ReviewController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'user_id' => 'required|string|max:255',
+            'food_id' => 'nullable|string',
+            'rating' => 'required|integer',
+            'comment' => 'nullable|string',
         ]);
 
         Review::create($request->all());
