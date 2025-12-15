@@ -52,7 +52,16 @@
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 ></textarea>
             </div>
-            
+            <div>
+            <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">Quantidade:</label>
+                <textarea 
+                    id="quantity" 
+                    name="quantity" 
+                    rows="4"
+                    placeholder="quantity"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
+                ></textarea>
+            </div>
             <button 
                 type="submit" 
                 class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md text-base font-medium text-white bg-primary hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-150 ease-in-out transform hover:scale-[1.01]"

@@ -27,7 +27,7 @@
     <div class="w-full max-w-lg bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
         
         <h1 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-            Editar Categoria: <span class="text-primary">{{ $category->name }}</span>
+            Editar Categoria: <span class="text-primary">{{ $order->name_food }}</span>
         </h1>
 
         <form action="{{ route('orders.update', $order->id) }}" method="POST" class="space-y-6">
@@ -53,6 +53,17 @@
                     id="name_store" 
                     name="name_store" 
                     value="{{ $order->name_store }}" 
+                    required 
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none transition duration-150 ease-in-out"
+                >
+            </div>
+            <div>
+                <label for="quantity" class="block text-sm font-medium text-gray-700 mb-1">quantity:</label>
+                <input
+                    type="text" 
+                    id="quantity" 
+                    name="quantity" 
+                    value="{{ $order->quantity }}" 
                     required 
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none transition duration-150 ease-in-out"
                 >
