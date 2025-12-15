@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Categorias (Tailwind)</title>
+    <title>Lista de Avaliações (Tailwind)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         // Mantendo as cores customizadas para consistência
@@ -35,17 +35,20 @@
                 <div class="flex items-center justify-between p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out border border-gray-100">
                     
                     <div class="flex-grow min-w-0">
-                        <p class="text-xl font-semibold text-gray-800 truncate" title="{{ $review->name }}">
-                            {{ $review-> }}
+                        <p class="text-xl font-semibold text-gray-800 truncate" title="{{ $review->user_id }}">
+                            {{ $review->user_id }}
                         </p>
-                        <p class="text-sm text-gray-500 mt-1 line-clamp-2" title="{{ $review->description }}">
-                            {{ $review->description }}
+                        <p class="text-sm text-gray-500 mt-1 line-clamp-2" title="{{ $review->food_id }}">
+                            {{ $review->food_id }}
+                        </p>
+                        <p class="text-sm text-gray-500 mt-1 line-clamp-2" title="{{ $review->rating }}">
+                        {{ $review->rating }}
                         </p>
                     </div>
 
                     <div class="flex space-x-3 ml-6 flex-shrink-0">
                         
-                        <a href="{{ route('categories.edit', $category->id) }}" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-hover transition duration-150 shadow-md">
+                        <a href="{{ route('reviews.edit', $category->id) }}" class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-primary-hover transition duration-150 shadow-md">
                             Editar
                         </a>
 

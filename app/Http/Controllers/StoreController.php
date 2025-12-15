@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Store;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -11,15 +11,13 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        $stores = Store::all();
+        return view('store.index', compact('stores'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('store.create');
     }
 
     /**
@@ -27,7 +25,15 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Store::create($request->all());
+
+        return redirect()->route('stores.index')
+                         ->with('success', 'Store created successfully.');
     }
 
     /**
@@ -43,7 +49,8 @@ class StoreController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $store = Store::findOrFail($id);
+        return view('store.edit', compact('store'));
     }
 
     /**
@@ -51,7 +58,16 @@ class StoreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+        $store = Store::findOrFail($id);
+        $store->update($request->all());
+
+        return redirect()->route('stores.index')
+                         ->with('success', 'Store updated successfully.');
     }
 
     /**
@@ -59,6 +75,10 @@ class StoreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $store = Store::findOrFail($id);
+        $store->delete();
+
+        return redirect()->route('stores.index')
+                         ->with('success', 'Store deleted successfully.');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -11,15 +11,13 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all();
+        return view('review.index', compact('reviews'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('review.create');
     }
 
     /**
@@ -27,7 +25,15 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Review::create($request->all());
+
+        return redirect()->route('reviews.index')
+                         ->with('success', 'Review created successfully.');
     }
 
     /**
@@ -43,7 +49,8 @@ class ReviewController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $review = Review::findOrFail($id);
+        return view('reviews.edit', compact('review'));
     }
 
     /**
@@ -51,7 +58,17 @@ class ReviewController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
+        $request->validate([
+            'user_id' => 'required|string|max:255',
+            'food_id' => 'nullable|string',
+            'rating' => 'required|integer',
+            'comment' => 'nullable|string',
+        ]);
+        $review = Review::findOrFail($id);
+        $review->update($request->all());
+        return redirect()->route('reviews.index')
+                         ->with('success', 'Review updated successfully.');
     }
 
     /**
@@ -59,6 +76,10 @@ class ReviewController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $review = Review::findOrFail($id);
+        $review->delete();
+
+        return redirect()->route('reviews.index')
+                         ->with('success', 'Review deleted successfully.');
     }
 }
