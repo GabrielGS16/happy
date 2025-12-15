@@ -28,7 +28,6 @@ class ReviewController extends Controller
         $request->validate([
             'user_id' => 'required|string|max:255',
             'food_id' => 'nullable|string',
-            'rating' => 'required|integer',
             'comment' => 'nullable|string',
         ]);
 
@@ -62,9 +61,7 @@ class ReviewController extends Controller
     {
         
         $request->validate([
-            'user_id' => 'required|string|max:255',
             'food_id' => 'nullable|string',
-            'rating' => 'required|integer',
             'comment' => 'nullable|string',
         ]);
         $review = Review::findOrFail($id);

@@ -29,6 +29,12 @@
         <h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center mt-4">
             Gerenciamento de lojas
         </h1>
+        
+        @if(session('success'))
+            <div class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <div class="space-y-4">
             @foreach($stores as $store)

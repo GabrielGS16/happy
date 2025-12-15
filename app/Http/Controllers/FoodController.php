@@ -35,7 +35,7 @@ class FoodController extends Controller
 
         Food::create($request->all());
         return redirect()->route('foods.index')
-                         ->with('success', 'Food created successfully.');
+                         ->with('success', 'Comida criada com sucesso.');
 
     }
 
@@ -69,7 +69,7 @@ class FoodController extends Controller
         $food->update($request->all());
 
         return redirect()->route('foods.index')
-                         ->with('success', 'Food updated successfully.');
+                         ->with('success', 'Comida atualizada com sucesso.');
     }
 
     /**
@@ -81,6 +81,6 @@ class FoodController extends Controller
         $food->delete();
 
         return redirect()->route('foods.index')
-                         ->with('success', 'Food deleted successfully.');
+                         ->with('success', 'Comida deletada com sucesso.');
     }
 }

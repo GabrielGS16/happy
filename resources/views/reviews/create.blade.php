@@ -31,35 +31,24 @@
             @csrf
             
             <div>
-                <label for="user_id" class="block text-sm font-medium text-gray-700 mb-1">Nome da Avaliação:</label>
-                <input 
-                    type="text" 
+                <label for="user_id" class="block text-sm font-medium text-gray-700 mb-1">Id do usuario:</label>
+                <textarea
                     id="user_id" 
                     name="user_id" 
                     required 
                     placeholder="Ex: Eletrônicos, Vestuário"
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none transition duration-150 ease-in-out"
-                >
-            </div>
-            
-            <div>
-                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Nome do Prato:</label>
-                <textarea 
-                    id="food_id" 
-                    name="food_id" 
-                    rows="4"
-                    placeholder="Breve descrição sobre o que esta categoria agrupa..."
-                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 ></textarea>
             </div>
             
             <div>
-                <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">Avaliação:</label>
+                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Id do Prato:</label>
                 <textarea 
-                    id="rating" 
-                    name="rating" 
+
+                    id="food_id" 
+                    name="food_id" 
                     rows="4"
-                    placeholder="Avaliação"
+                    placeholder="Breve descrição sobre o que esta categoria agrupa..."
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 ></textarea>
             </div>

@@ -27,15 +27,15 @@
     <div class="w-full max-w-lg bg-white p-8 rounded-xl shadow-2xl border border-gray-100">
         
         <h1 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">
-            Editar Categoria: <span class="text-primary">{{ $category->name }}</span>
+            Editar Categoria: <span class="text-primary">{{ $review->name }}</span>
         </h1>
 
-        <form action="{{ route('reviews.update', $category->id) }}" method="POST" class="space-y-6">
+        <form action="{{ route('reviews.update', $review->id) }}" method="POST" class="space-y-6">
             @csrf
             @method('PUT') 
             
             <div>
-                <label for="user_id" class="block text-sm font-medium text-gray-700 mb-1">Nome da Avaliação:</label>
+                <label for="user_id" class="block text-sm font-medium text-gray-700 mb-1">Id do usuario:</label>
                 <input 
                     type="text" 
                     id="user_id" 
@@ -47,13 +47,22 @@
             </div>
             
             <div>
-                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Nome do Prato:</label>
+                <label for="food_id" class="block text-sm font-medium text-gray-700 mb-1">Id do Prato:</label>
                 <textarea 
                     id="food_id" 
                     name="food_id" 
                     rows="4"
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 >{{ $review->food_id }}</textarea>
+            </div>
+            <div>
+                <label for="comment" class="block text-sm font-medium text-gray-700 mb-1">Comentario:</label>
+                <textarea 
+                    id="comment" 
+                    name="comment" 
+                    rows="4"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
+                >{{ $review->comment }}</textarea>
             </div>
             
             <button 

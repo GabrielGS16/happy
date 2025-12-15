@@ -30,6 +30,12 @@
             Gerenciamento de Avaliaçãos
         </h1>
 
+        @if(session('success'))
+            <div class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="space-y-4">
             @foreach($reviews as $review)
                 <div class="flex items-center justify-between p-5 bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out border border-gray-100">
@@ -38,8 +44,13 @@
                         <p class="text-xl font-semibold text-gray-800 truncate" title="{{ $review->user_id }}">
                             {{ $review->user_id }}
                         </p>
+
                         <p class="text-sm text-gray-500 mt-1 line-clamp-2" title="{{ $review->food_id }}">
                             {{ $review->food_id }}
+                        </p>
+
+                        <p class="text-sm text-gray-500 mt-1 line-clamp-2" title="{{ $review->comment }}">
+                            {{ $review->comment }}
                         </p>
                     </div>
 

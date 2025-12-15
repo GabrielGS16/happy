@@ -32,14 +32,14 @@
             
             <div>
                 <label for="name_food" class="block text-sm font-medium text-gray-700 mb-1">Nome do Prato:</label>
-                <input 
+                <textarea 
                     type="text" 
                     id="name_food" 
                     name="name_food" 
                     required 
                     placeholder="Ex: Eletrônicos, Vestuário"
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none transition duration-150 ease-in-out"
-                >
+                ></textarea>
             </div>
             
             <div>
@@ -58,7 +58,7 @@
                     id="quantity" 
                     name="quantity" 
                     rows="4"
-                    placeholder="quantity"
+                    placeholder="Ex: 1, 2, 3..."
                     class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary outline-none resize-y transition duration-150 ease-in-out"
                 ></textarea>
             </div>
